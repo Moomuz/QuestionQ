@@ -12,6 +12,7 @@ public class Tester {
 	public static void main(String[] args)
 	{
 		Queue queue = new Queue();
+		Formatter formatter = new Formatter();
 		
 		JFrame studentView = new JFrame();
 		JFrame profView = new JFrame();
@@ -40,7 +41,9 @@ public class Tester {
 	    	}
 			Question temp = new Question(qString, id);
 			queue.addQuestion(temp);
-			//refreshQueue();
+			JLabel meow = new JLabel(formatter.formatQuestion(queue, temp));
+			queueView.add(meow);
+			System.out.println(queue.indexOf(temp)+temp.getQuestion());
 		});
 		
 

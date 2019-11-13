@@ -3,21 +3,22 @@
 public class Student {
 	private int ID;
 	private int extraCredit = 0;
+	private String name;
 	
-	public Student(int ID)
+	public Student(int ID, String name)
 	{
-		this.name = name;
 		this.ID = ID;
+		this.name = name;
+	}
+	
+	public Student()
+	{
+		name = "This student got yeeted";
 	}
 	
 	public int getID()
 	{
 		return this.ID;
-	}
-	
-	public String getName()
-	{
-		return this.name;
 	}
 	
 	public int getExtraCredit()
@@ -28,5 +29,10 @@ public class Student {
 	public void addExtraCredit(int points) 
 	{
 		this.extraCredit += points;
+	}
+	
+	public String toString()
+	{
+		return this.name;
 	}
 }

@@ -8,6 +8,6 @@ public class Formatter {
 	
 	public String formatStudent(Student student)
 	{
-		return "(" + student.getID() + ") " + student.getName();
+		return "(" + student.getID() + ")";
 	}
 }
