@@ -8,5 +8,13 @@ public class Professor {
 		this.name = name;
 		this.profID = profID;
 	}
+	public String getName()
+	{
+		return this.name;
+	}
 	
+	public int profID()
+	{
+		return this.profID;
+	}
 }
