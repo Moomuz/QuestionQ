@@ -2,10 +2,9 @@
 
 public class Student {
 	private int ID;
-	private String name;
 	private int extraCredit = 0;
 	
-	public Student(String name,int ID)
+	public Student(int ID)
 	{
 		this.name = name;
 		this.ID = ID;
