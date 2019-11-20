@@ -47,5 +47,10 @@ public class Queue {
 			System.out.println(i+1 + ". " + question);
 		}
 	}
+	
+	public int indexOf(Question question)
+	{
+		return queue.indexOf(question);
+	}
 
 }
