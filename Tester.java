@@ -1,13 +1,11 @@
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 
 public class Tester {
-	
-	private void refreshQueue()
-	{
-		//ArrayList<Question> questions = queue.getQuestions();
-	}
+	private static final int QUESTION_HEIGHT = 30;
+	private static final int QUESTION_WIDTH = 400;
 	
 	public static void main(String[] args)
 	{
@@ -22,8 +20,8 @@ public class Tester {
 		studentView.add(idLabel);
 		JTextField idField = new JTextField(20);
 		studentView.add(idField);
-		JLabel qLabel = new JLabel("Enter your question here (Limit: 50 characters)");
-		studentView.add(qLabel);
+		JLabel descLabel = new JLabel("Enter your question here (Limit: 50 characters)");
+		studentView.add(descLabel);
 		JTextField qField = new JTextField(30);
 		studentView.add(qField);
 		qField.addActionListener(event ->
@@ -39,15 +37,28 @@ public class Tester {
 	    	{
 	    		System.out.println("Please enter a valid student ID");
 	    	}
-			Question temp = new Question(qString, id);
-			queue.addQuestion(temp);
-			JLabel meow = new JLabel(formatter.formatQuestion(queue, temp));
-			queueView.add(meow);
-			System.out.println(queue.indexOf(temp)+temp.getQuestion());
+			Question question = new Question(qString, id);
+			queue.addQuestion(question);
+			
+			JLabel qLabel = new JLabel(formatter.formatQuestion(queue, question));
+			JPanel qPanel = new JPanel();
+	        EmptyBorder panelBorder = new EmptyBorder(2, (400-qLabel.getWidth())/2, 2, (400-qLabel.getWidth())/2); //centers the question
+	        qPanel.setBorder(panelBorder);
+	        
+	        
+	        
+			qPanel.add(qLabel);
+			queueView.add(qPanel);
+			qLabel.setSize(new Dimension(QUESTION_WIDTH, QUESTION_HEIGHT));
+			queueView.repaint();
+			
+			queueView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+			queueView.pack();
+			queueView.setSize(400,300);
+			queueView.setLocation(900, 0);
+			queueView.setVisible(true);
 		});
-		
 
-		
 		studentView.setLayout(new FlowLayout());
 		studentView.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		studentView.pack();
