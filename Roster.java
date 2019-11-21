@@ -29,7 +29,7 @@ public class Roster {
 				return student;
 			}
 		}
-		return new Student();
+		return new Student(); //if student is not found, return "This student does not exist"
 	}
 	
 }
