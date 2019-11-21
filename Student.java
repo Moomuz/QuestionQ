@@ -33,6 +33,13 @@ public class Student {
 	
 	public String toString()
 	{
-		return this.name;
+		if(this.ID == 0) //null student initializes ID as 0
+		{
+			return "This student does not exist";
+		}
+		else
+		{
+			return Integer.toString(this.ID);
+		}
 	}
 }
