@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -94,6 +93,10 @@ public class Roster {
 			if (studentID == fileID.get(i))
 			{
 				fileEXC.set(i, exc);
+			}
+			else
+			{
+				System.out.println("Student ID not found. Please try again.");
 			}
 		}
 		
