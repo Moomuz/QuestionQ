@@ -91,8 +91,8 @@ public class Tester {
 			JLabel toBeRemoved = qLabels.get(qPos-1);
 			JPanel qPanel = qPanels.get(qPos-1);
 			
-			//Set deleted panel's border to 0
-			qPanel.setBorder(new EmptyBorder(0, 0, 0, 0));
+			//BRUTE FORCE LUL
+			qPanel.setBorder(new EmptyBorder(-8, 0, -8, 0));
 			
 			//remove text question label from panel
 			qPanel.remove(toBeRemoved);
