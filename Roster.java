@@ -58,7 +58,7 @@ public class Roster {
 		// Extract information from text file 
 		try
 		{
-			br = new BufferedReader(new FileReader("/Users/jenluu/Desktop/Roster.txt"));
+			br = new BufferedReader(new FileReader("Roster.txt"));
 			
 			// Read the first name that contains the headers
 			String headers = br.readLine();
@@ -104,7 +104,7 @@ public class Roster {
 		try
 		{
 		// Write as a text file again
-		File myFile = new File("/Users/jenluu/Desktop/Roster.txt");
+		File myFile = new File("Roster.txt");
 		FileWriter fw = new FileWriter(myFile.getAbsoluteFile());
 		BufferedWriter bw = new BufferedWriter(fw);
 		
