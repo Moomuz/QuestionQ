@@ -19,11 +19,11 @@ public class Tester {
 		JFrame profView = new JFrame();
 		JFrame queueView = new JFrame();
 		
-		JLabel idLabel = new JLabel("Enter your student ID here (ex: XXXXXXXXX)");
+		JLabel idLabel = new JLabel("Enter your 9-digit student ID here");
 		studentView.add(idLabel);
 		JTextField idField = new JTextField(20);
 		studentView.add(idField);
-		JLabel descLabel = new JLabel("Enter your question here (Limit: 50 characters)");
+		JLabel descLabel = new JLabel("Enter your question here");
 		studentView.add(descLabel);
 		JTextField qField = new JTextField(30);
 		studentView.add(qField);
