@@ -58,7 +58,7 @@ public class Roster {
 		// Extract information from text file 
 		try
 		{
-			br = new BufferedReader(new FileReader("Roster.txt"));
+			br = new BufferedReader(new FileReader("/Users/jenluu/Desktop/Roster.txt"));
 			
 			// Read the first name that contains the headers
 			String headers = br.readLine();
@@ -85,26 +85,30 @@ public class Roster {
 		{
 			e.printStackTrace();
 		}
+	
 		
-		// Search the student ID ArrayList for desired student
-		for (int i = 0; i < fileID.size(); i++)
+		
+		// Go through the studentID list to find the desired ID to input exc
+		boolean done = false;
+		int index = 0;
+		
+		while(done!= true)
 		{
-			
-			// Update extra credit point 
-			if (studentID == fileID.get(i))
+			if (studentID == fileID.get(index))
 			{
-				fileEXC.set(i, exc);
+				fileEXC.set(index, exc);
+				done = true;
 			}
 			else
 			{
-				System.out.println("Student ID not found. Please try again.");
+				index++;
 			}
 		}
-		
+			
 		try
 		{
 		// Write as a text file again
-		File myFile = new File("Roster.txt");
+		File myFile = new File("/Users/jenluu/Desktop/Roster.txt");
 		FileWriter fw = new FileWriter(myFile.getAbsoluteFile());
 		BufferedWriter bw = new BufferedWriter(fw);
 		
