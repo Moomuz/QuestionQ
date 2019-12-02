@@ -1,24 +1,16 @@
-
-
 public class Student {
 	private int ID;
-	private String name;
 	private int extraCredit = 0;
 	
-	public Student(String name,int ID)
+	public Student(int ID, int extraCredit)
 	{
-		this.name = name;
 		this.ID = ID;
+		this.extraCredit = extraCredit;
 	}
 	
 	public int getID()
 	{
 		return this.ID;
-	}
-	
-	public String getName()
-	{
-		return this.name;
 	}
 	
 	public int getExtraCredit()
