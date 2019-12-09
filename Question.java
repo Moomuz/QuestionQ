@@ -1,3 +1,4 @@
+
 public class Question {
 
 	private String question;
@@ -8,6 +9,12 @@ public class Question {
 		
 		this.question = question;
 		this.studentID = studentID;
+	}
+	
+	// Constructor for null Question object
+	public Question()
+	{
+		
 	}
 	
 	// Return the Question (String)
