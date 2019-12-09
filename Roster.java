@@ -1,4 +1,3 @@
-
 import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.File;
@@ -9,27 +8,51 @@ import java.util.*;
 
 public class Roster {
 	private ArrayList<Student> students;
-	private ArrayList<String> formattedStudents;
+	private String rosterInput;
 	
-	public Roster()
+	public Roster(String rosterInput)
 	{
+		students = new ArrayList<>();
+		this.rosterInput = rosterInput;
+	}
+	
+	//return an array of students that was retrieved from Roster.txt
+	public ArrayList<Student> getRoster()
+	{
+		ArrayList<Integer> fileID = new ArrayList<Integer>();
+		ArrayList<Integer> fileEXC = new ArrayList<Integer>();
 		
-	}
-	
-	public Roster(ArrayList<Student> students)
-	{
-		Formatter formatter = new Formatter();
-		this.students = students;
-		this.formattedStudents = new ArrayList<String>();
-		for(Student student: this.students)
+		BufferedReader br;
+		
+		// Extract information from text file 
+		try
 		{
-			formattedStudents.add(formatter.formatStudent(student));
+			br = new BufferedReader(new FileReader(this.rosterInput));
+			
+			// Read the first name that contains the headers
+			String headers = br.readLine();
+			// Read from the second line 
+			String line = br.readLine();
+			while(line != null)
+			{
+				// Part 1 is ID, part 2 is exc 
+				String[] placeholder = line.split(" ");
+				
+				int id = Integer.parseInt(placeholder[0]);
+				int extraCredit = Integer.parseInt(placeholder[1]);
+				
+				students.add(new Student(id,extraCredit));
+				
+				line = br.readLine();
+			}
+			
+			br.close();
 		}
-	}
-	
-	public ArrayList<String> getRoster()
-	{
-		return this.formattedStudents;
+		catch(IOException e)
+		{
+			e.printStackTrace();
+		}
+		return this.students;
 	}
 	
 	public Student findStudent(int ID)
@@ -48,7 +71,7 @@ public class Roster {
 	// Opens a text file of the roster of the class (ID and extra credit)
 	// Reads the file and allows the user to input extra credit
 	// Update the roster
-	public static void inputExtraCredit(int studentID, int exc)
+	public void inputExtraCredit(int studentID, int exc)
 	{
 		ArrayList<Integer> fileID = new ArrayList<Integer>();
 		ArrayList<Integer> fileEXC = new ArrayList<Integer>();
@@ -58,7 +81,7 @@ public class Roster {
 		// Extract information from text file 
 		try
 		{
-			br = new BufferedReader(new FileReader("/Users/jenluu/Desktop/Roster.txt"));
+			br = new BufferedReader(new FileReader(this.rosterInput));
 			
 			// Read the first name that contains the headers
 			String headers = br.readLine();
@@ -108,7 +131,7 @@ public class Roster {
 		try
 		{
 		// Write as a text file again
-		File myFile = new File("/Users/jenluu/Desktop/Roster.txt");
+		File myFile = new File("Roster.txt");
 		FileWriter fw = new FileWriter(myFile.getAbsoluteFile());
 		BufferedWriter bw = new BufferedWriter(fw);
 		
@@ -133,5 +156,14 @@ public class Roster {
 		
 	}	
 	
-	
+	//return Integer ArrayList of student IDs
+	public ArrayList<Integer> getIntRoster()
+	{
+		ArrayList<Integer> studentIDs = new ArrayList<Integer>();
+		for(Student student: students)
+		{
+			studentIDs.add(student.getID());
+		}
+		return studentIDs;
+	}
 }
