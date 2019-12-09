@@ -30,6 +30,11 @@ public class Queue {
 		return queue.get(queue.size()-1).getQuestion();
 	}
 	
+	public Question getQuestion(int index)
+	{
+		return queue.get(index - 1);
+	}
+	
 	// Return the ith Question in the Queue
 	public void deleteQuestion(int index)
 	{
