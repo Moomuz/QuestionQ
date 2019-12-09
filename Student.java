@@ -1,13 +1,17 @@
 
-
 public class Student {
 	private int ID;
 	private int extraCredit = 0;
 	
-	public Student(int ID)
+	public Student(int ID, int extraCredit)
 	{
-		this.name = name;
 		this.ID = ID;
+		this.extraCredit = extraCredit;
+	}
+	
+	public Student()
+	{
+		
 	}
 	
 	public int getID()
@@ -15,10 +19,6 @@ public class Student {
 		return this.ID;
 	}
 	
-	public String getName()
-	{
-		return this.name;
-	}
 	
 	public int getExtraCredit()
 	{
@@ -28,5 +28,17 @@ public class Student {
 	public void addExtraCredit(int points) 
 	{
 		this.extraCredit += points;
+	}
+	
+	public String toString()
+	{
+		if(this.ID == 0)
+		{
+			return "This student does not exist";
+		}
+		else
+		{
+			return Integer.toString(this.ID);
+		}
 	}
 }
