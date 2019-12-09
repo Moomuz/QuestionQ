@@ -1,25 +1,24 @@
 
-
 public class Student {
 	private int ID;
 	private int extraCredit = 0;
-	private String name;
 	
-	public Student(int ID, String name)
+	public Student(int ID, int extraCredit)
 	{
 		this.ID = ID;
-		this.name = name;
+		this.extraCredit = extraCredit;
 	}
 	
 	public Student()
 	{
-		name = "This student got yeeted";
+		
 	}
 	
 	public int getID()
 	{
 		return this.ID;
 	}
+	
 	
 	public int getExtraCredit()
 	{
@@ -33,7 +32,7 @@ public class Student {
 	
 	public String toString()
 	{
-		if(this.ID == 0) //null student initializes ID as 0
+		if(this.ID == 0)
 		{
 			return "This student does not exist";
 		}
